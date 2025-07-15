@@ -116,7 +116,7 @@ const LootjesTrekker = {
     }
 
     // Optimized results display
-    output += '<h3>📊 Kansen per deelnemer:</h3><ul>';
+    output += '<h3>Kansen per deelnemer:</h3><ul>';
     personen.forEach(persoon => {
       const kansPercentage = ((persoon.aantal / lootjes.length) * 100).toFixed(1);
       const gewonnen = winnaars[persoon.naam] || 0;
@@ -126,9 +126,9 @@ const LootjesTrekker = {
     output += '</ul>';
     
     // Enhanced winner display
-    output += '<h3>🏆 Winnende lootjes (in volgorde van trekking):</h3><ol class="winner-list">';
+    output += '<h3>Winnende lootjes (in volgorde van trekking):</h3><ol class="winner-list">';
     winnende_lootjes.forEach(winnaar => {
-      output += `<li><strong>${winnaar}</strong> 🎉</li>`;
+      output += `<li><strong>${winnaar}</strong></li>`;
     });
     output += '</ol>';
     

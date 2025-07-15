@@ -60,7 +60,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>🎲 Lootjes Trekker - Beheerder Paneel</h1>
+      <h1>Lootjes Trekker - Beheerder Paneel</h1>
       <p class="subtitle">Gratis online tool voor eerlijke digitale lotingen</p>
     </header>
     
@@ -93,7 +93,7 @@
         <input type="number" id="aantalTeTrekken" min="1" placeholder="Bijv. 40" style="width: 200px;" aria-label="Aantal lootjes om te trekken">
         
         <div>
-          <button id="trekButton" onclick="trekLootjes()" aria-label="Start de loting">🎯 Trek winnende lootjes</button>
+          <button id="trekButton" onclick="trekLootjes()" aria-label="Start de loting">Trek winnende lootjes</button>
         </div>
       </section>
 
