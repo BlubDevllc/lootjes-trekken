@@ -28,11 +28,6 @@ class LotteryApp {
    */
   async init() {
     try {
-      // Bind methods to maintain context
-      this.addParticipant = this.addParticipant.bind(this);
-      this.removeParticipantRow = this.removeParticipantRow.bind(this);
-      this.drawLottery = this.drawLottery.bind(this);
-      
       this.cacheElements();
       this.attachEventListeners();
       this.createInitialParticipantRows();
@@ -70,11 +65,11 @@ class LotteryApp {
     const drawButton = this.cache.get('drawButton');
     
     if (addButton) {
-      addButton.addEventListener('click', this.addParticipant);
+      addButton.addEventListener('click', () => this.addParticipant());
     }
     
     if (drawButton) {
-      drawButton.addEventListener('click', this.drawLottery);
+      drawButton.addEventListener('click', () => this.drawLottery());
     }
 
     // Add keyboard shortcuts
