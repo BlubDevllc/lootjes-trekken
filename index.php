@@ -13,6 +13,11 @@
   <meta name="robots" content="index, follow">
   <meta name="language" content="Dutch">
   
+  <!-- Google Fonts - Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yourdomain.com/">
@@ -51,8 +56,6 @@
   </script>
   
   <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <!-- External CSS -->
   <link rel="stylesheet" href="assets/css/main.css">

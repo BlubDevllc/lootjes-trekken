@@ -7,15 +7,15 @@
  * @description Layout components for app structure
  */
 
-/* === MAIN CONTAINER === */
+/* === MAIN CONTAINER - CLEAN & MODERN === */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   background: var(--pure-white);
-  padding: var(--space-2xl);
+  padding: var(--space-3xl);
   border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-heavy);
-  border: 2px solid var(--primary-gold);
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border-light);
   position: relative;
   overflow: hidden;
 }
@@ -28,24 +28,15 @@
   right: 0;
   height: 4px;
   background: var(--gradient-primary);
-  animation: shimmer 3s ease-in-out infinite;
+  opacity: 0.8;
 }
 
-@keyframes shimmer {
-  0%, 100% { 
-    opacity: 0.7; 
-  }
-  50% { 
-    opacity: 1; 
-  }
-}
-
-/* === HEADER === */
+/* === HEADER - WELCOMING & CLEAR === */
 .app-header {
   text-align: center;
-  margin-bottom: var(--space-3xl);
-  padding-bottom: var(--space-xl);
-  border-bottom: 2px solid var(--border-light);
+  margin-bottom: var(--space-4xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .app-title {
@@ -56,25 +47,43 @@
   text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
-.app-subtitle {
-  color: var(--medium-gray);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-normal);
-  margin-bottom: 0;
+.app-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-heading);
+  color: var(--primary-blue);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-tight);
+  text-shadow: 2px 2px 4px rgba(59, 130, 246, 0.1);
 }
 
-/* === MAIN CONTENT === */
+.app-subtitle {
+  color: var(--medium-gray);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* === MAIN CONTENT - SPACIOUS & ORGANIZED === */
 .app-main {
-  min-height: 400px;
+  min-height: 500px;
+  padding: var(--space-lg) 0;
 }
 
 .section {
-  margin-bottom: var(--space-3xl);
-  padding: var(--space-xl);
-  background: linear-gradient(135deg, #FAFAFA, #FFFFFF);
-  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4xl);
+  padding: var(--space-2xl);
+  background: var(--background-gray);
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-light);
+  transition: var(--transition-all);
+}
+
+.section:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
 }
 
 .section:last-child {
@@ -82,26 +91,29 @@
 }
 
 .section-title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
-  color: var(--deep-purple);
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-family-heading);
+  color: var(--primary-blue);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--primary-blue-light);
+  line-height: var(--line-height-tight);
 }
 
-/* === FOOTER === */
+/* === FOOTER - CLEAN & UNOBTRUSIVE === */
 .app-footer {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-xl);
+  margin-top: var(--space-4xl);
+  padding-top: var(--space-2xl);
   text-align: center;
   color: var(--medium-gray);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   border-top: 1px solid var(--border-light);
 }
 
 .app-footer p {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-relaxed);
 }
 
 .app-footer p:last-child {

@@ -8,19 +8,20 @@
  */
 
 :root {
-  /* === LOTTERY THEME COLOR PALETTE === */
+  /* === MODERN FRIENDLY COLOR PALETTE === */
   
-  /* Primary Colors - Gold Theme */
-  --primary-gold: #FFD700;
-  --secondary-gold: #FFA500;
-  --light-gold: #FFEC8B;
-  --dark-gold: #B8860B;
+  /* Primary Colors - Warm & Approachable */
+  --primary-blue: #3B82F6;
+  --primary-blue-light: #60A5FA;
+  --primary-blue-dark: #1D4ED8;
+  --accent-orange: #F59E0B;
+  --accent-orange-light: #FCD34D;
   
-  /* Secondary Colors - Royal Purple */
-  --deep-purple: #4A148C;
-  --royal-purple: #6A1B9A;
-  --light-purple: #BA68C8;
-  --dark-purple: #2E0854;
+  /* Secondary Colors - Calming & Professional */
+  --soft-green: #10B981;
+  --soft-green-light: #34D399;
+  --soft-purple: #8B5CF6;
+  --soft-purple-light: #A78BFA;
   
   /* Accent Colors - Lucky Green */
   --emerald-green: #00C851;
@@ -28,53 +29,59 @@
   --forest-green: #1B5E20;
   --light-green: #C8E6C9;
   
-  /* Status Colors */
-  --danger-red: #FF3D00;
-  --soft-red: #FF6B6B;
-  --warning-orange: #FF9800;
-  --success-green: var(--emerald-green);
+  /* Status Colors - Friendly & Clear */
+  --success-green: #22C55E;
+  --success-green-light: #86EFAC;
+  --danger-red: #EF4444;
+  --danger-red-light: #FCA5A5;
+  --warning-orange: #F59E0B;
+  --warning-orange-light: #FCD34D;
+  --info-blue: #3B82F6;
+  --info-blue-light: #93C5FD;
   
-  /* Neutral Colors */
+  /* Neutral Colors - Clean & Modern */
   --pure-white: #FFFFFF;
-  --light-gray: #F8F9FA;
-  --medium-gray: #6C757D;
-  --dark-gray: #495057;
-  --dark-text: #2C3E50;
-  --border-light: #E9ECEF;
-  --border-medium: #DEE2E6;
+  --light-gray: #F8FAFC;
+  --medium-gray: #64748B;
+  --dark-gray: #334155;
+  --dark-text: #1E293B;
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --background-gray: #F1F5F9;
   
-  /* === GRADIENTS === */
-  --gradient-primary: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-purple) 100%);
-  --gradient-success: linear-gradient(135deg, var(--emerald-green) 0%, var(--lucky-green) 100%);
-  --gradient-danger: linear-gradient(135deg, var(--danger-red) 0%, var(--soft-red) 100%);
-  --gradient-background: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-purple) 50%, var(--dark-purple) 100%);
+  /* === MODERN GRADIENTS === */
+  --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--soft-purple) 0%, var(--soft-purple-light) 100%);
+  --gradient-success: linear-gradient(135deg, var(--success-green) 0%, var(--success-green-light) 100%);
+  --gradient-danger: linear-gradient(135deg, var(--danger-red) 0%, var(--danger-red-light) 100%);
+  --gradient-warning: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 100%);
+  --gradient-background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%);
   
-  /* === SHADOWS === */
-  --shadow-color: rgba(74, 20, 140, 0.15);
-  --shadow-light: 0 2px 8px var(--shadow-color);
-  --shadow-medium: 0 4px 15px var(--shadow-color);
+  /* === FRIENDLY SHADOWS === */
+  --shadow-color: rgba(30, 41, 59, 0.08);
+  --shadow-light: 0 1px 3px var(--shadow-color);
+  --shadow-medium: 0 4px 12px var(--shadow-color);
   --shadow-heavy: 0 8px 25px var(--shadow-color);
-  --shadow-gold: 0 4px 15px rgba(255, 215, 0, 0.3);
-  --shadow-green: 0 4px 15px rgba(0, 200, 81, 0.3);
-  --shadow-red: 0 4px 15px rgba(255, 107, 107, 0.3);
+  --shadow-blue: 0 4px 15px rgba(59, 130, 246, 0.15);
+  --shadow-green: 0 4px 15px rgba(34, 197, 94, 0.15);
+  --shadow-orange: 0 4px 15px rgba(245, 158, 11, 0.15);
   
   /* === TYPOGRAPHY === */
-  --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-family-secondary: 'Georgia', 'Times New Roman', serif;
-  --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --font-family-primary: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Poppins', 'Inter', sans-serif;
+  --font-family-mono: 'Fira Code', 'SF Mono', 'Monaco', 'Consolas', monospace;
   
-  /* Font Sizes */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  --font-size-4xl: 2.25rem;   /* 36px */
+  /* Font Sizes - Age-Friendly Scale */
+  --font-size-xs: 0.75rem;    /* 12px - Small labels */
+  --font-size-sm: 0.875rem;   /* 14px - Body text */
+  --font-size-base: 1rem;     /* 16px - Standard reading */
+  --font-size-lg: 1.125rem;   /* 18px - Comfortable reading */
+  --font-size-xl: 1.25rem;    /* 20px - Subheadings */
+  --font-size-2xl: 1.5rem;    /* 24px - Section headings */
+  --font-size-3xl: 1.875rem;  /* 30px - Page titles */
+  --font-size-4xl: 2.25rem;   /* 36px - Main headlines */
   
-  /* Font Weights */
+  /* Font Weights - Clear Hierarchy */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -82,25 +89,39 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   
-  /* Line Heights */
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+  /* Line Heights - Readable Spacing */
+  --line-height-tight: 1.25;   /* Headlines */
+  --line-height-normal: 1.5;   /* Body text */
+  --line-height-relaxed: 1.75; /* Comfortable reading */
   
-  /* === SPACING === */
-  --space-xs: 0.25rem;   /* 4px */
-  --space-sm: 0.5rem;    /* 8px */
-  --space-md: 0.75rem;   /* 12px */
-  --space-lg: 1rem;      /* 16px */
-  --space-xl: 1.5rem;    /* 24px */
-  --space-2xl: 2rem;     /* 32px */
-  --space-3xl: 3rem;     /* 48px */
-  --space-4xl: 4rem;     /* 64px */
+  /* === SPACING - CHILD & ADULT FRIENDLY === */
+  --space-xs: 0.25rem;   /* 4px - Tight spacing */
+  --space-sm: 0.5rem;    /* 8px - Small gaps */
+  --space-md: 0.75rem;   /* 12px - Standard spacing */
+  --space-lg: 1rem;      /* 16px - Comfortable spacing */
+  --space-xl: 1.5rem;    /* 24px - Section spacing */
+  --space-2xl: 2rem;     /* 32px - Large gaps */
+  --space-3xl: 3rem;     /* 48px - Major sections */
+  --space-4xl: 4rem;     /* 64px - Page sections */
+  --space-5xl: 6rem;     /* 96px - Hero spacing */
   
-  /* === BORDER RADIUS === */
-  --radius-sm: 0.25rem;   /* 4px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
+  /* === BORDER RADIUS - FRIENDLY CURVES === */
+  --radius-xs: 0.125rem;  /* 2px - Subtle curves */
+  --radius-sm: 0.25rem;   /* 4px - Small buttons */
+  --radius-md: 0.5rem;    /* 8px - Standard buttons */
+  --radius-lg: 0.75rem;   /* 12px - Cards and panels */
+  --radius-xl: 1rem;      /* 16px - Large cards */
+  --radius-2xl: 1.5rem;   /* 24px - Hero elements */
+  --radius-full: 9999px;  /* Full circles */
+  
+  /* === TRANSITIONS - SMOOTH INTERACTIONS === */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.25s ease-out;
+  --transition-slow: 0.4s ease-out;
+  --transition-colors: color 0.25s ease-out, background-color 0.25s ease-out, border-color 0.25s ease-out;
+  --transition-transform: transform 0.25s ease-out;
+  --transition-shadow: box-shadow 0.25s ease-out;
+  --transition-all: all 0.25s ease-out;
   --radius-xl: 1rem;      /* 16px */
   --radius-2xl: 1.5rem;   /* 24px */
   --radius-full: 9999px;  /* Full radius */
@@ -110,34 +131,47 @@
   --transition-normal: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;
   
-  /* === BREAKPOINTS (for reference in JS) === */
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-2xl: 1400px;
+  /* === BREAKPOINTS - RESPONSIVE DESIGN === */
+  --breakpoint-xs: 475px;   /* Extra small devices */
+  --breakpoint-sm: 640px;   /* Small devices (phones) */
+  --breakpoint-md: 768px;   /* Medium devices (tablets) */
+  --breakpoint-lg: 1024px;  /* Large devices (laptops) */
+  --breakpoint-xl: 1280px;  /* Extra large devices */
+  --breakpoint-2xl: 1536px; /* 2X large devices */
   
-  /* === Z-INDEX LAYERS === */
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-tooltip: 1070;
-  --z-toast: 1080;
+  /* === Z-INDEX LAYERS - CLEAR STACKING === */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-toast: 80;
+  --z-overlay: 90;
 }
 
-/* === DARK MODE SUPPORT === */
+/* === MODERN DARK MODE SUPPORT === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --pure-white: #1A1A1A;
-    --light-gray: #2D2D2D;
-    --medium-gray: #8E8E8E;
-    --dark-text: #F0F0F0;
-    --border-light: #404040;
-    --border-medium: #505050;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+    /* Dark Mode Color Overrides */
+    --pure-white: #0F172A;
+    --light-gray: #1E293B;
+    --background-gray: #0F172A;
+    --dark-text: #F1F5F9;
+    --medium-gray: #94A3B8;
+    --border-light: #334155;
+    --border-medium: #475569;
+    
+    /* Adjust shadows for dark mode */
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --shadow-light: 0 1px 3px var(--shadow-color);
+    --shadow-medium: 0 4px 12px var(--shadow-color);
+    --shadow-heavy: 0 8px 25px var(--shadow-color);
+    
+    /* Dark mode gradients */
+    --gradient-background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
   }
 }
 
