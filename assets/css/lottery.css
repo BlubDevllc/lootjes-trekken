@@ -40,6 +40,11 @@
   }
 }
 
+/* Utility class for triggering the slide-in animation */
+.participant-slide-in {
+  animation: participantSlideIn 0.4s ease-out;
+}
+
 .participant-row .form-input {
   margin-bottom: 0;
 }

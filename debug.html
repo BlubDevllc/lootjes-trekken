@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Debug Test</h1>
+    <div id="debug-output"></div>
+    
+    <script type="module">
+        console.log('Starting module test...');
+        
+        try {
+            // Test config import
+            import('./assets/js/config.js').then(configModule => {
+                console.log('Config loaded:', configModule.APP_CONFIG);
+                document.getElementById('debug-output').innerHTML += '<p>✅ Config loaded successfully</p>';
+                
+                // Test utils import
+                return import('./assets/js/utils.js');
+            }).then(utilsModule => {
+                console.log('Utils loaded:', utilsModule.Utils);
+                document.getElementById('debug-output').innerHTML += '<p>✅ Utils loaded successfully</p>';
+                
+                // Test lottery engine import
+                return import('./assets/js/lottery-engine.js');
+            }).then(engineModule => {
+                console.log('LotteryEngine loaded:', engineModule.LotteryEngine);
+                document.getElementById('debug-output').innerHTML += '<p>✅ LotteryEngine loaded successfully</p>';
+                
+                // Test main import
+                return import('./assets/js/main.js');
+            }).then(mainModule => {
+                console.log('Main loaded:', mainModule.LotteryApp);
+                document.getElementById('debug-output').innerHTML += '<p>✅ Main loaded successfully</p>';
+                document.getElementById('debug-output').innerHTML += '<p><strong>All modules loaded successfully! 🎉</strong></p>';
+            }).catch(error => {
+                console.error('Module loading failed:', error);
+                document.getElementById('debug-output').innerHTML += `<p style="color: red;">❌ Error: ${error.message}</p>`;
+            });
+        } catch (error) {
+            console.error('Critical error:', error);
+            document.getElementById('debug-output').innerHTML += `<p style="color: red;">❌ Critical Error: ${error.message}</p>`;
+        }
+    </script>
+</body>
+</html>

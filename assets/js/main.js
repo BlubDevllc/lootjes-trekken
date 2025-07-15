@@ -20,11 +20,6 @@ class LotteryApp {
     this.cache = new Map();
     this.participants = [];
     
-    // Bind methods to maintain context
-    this.addParticipant = this.addParticipant.bind(this);
-    this.removeParticipant = this.removeParticipant.bind(this);
-    this.drawLottery = this.drawLottery.bind(this);
-    
     Utils.log('log', 'Lottery app initialized');
   }
 
@@ -33,6 +28,11 @@ class LotteryApp {
    */
   async init() {
     try {
+      // Bind methods to maintain context
+      this.addParticipant = this.addParticipant.bind(this);
+      this.removeParticipantRow = this.removeParticipantRow.bind(this);
+      this.drawLottery = this.drawLottery.bind(this);
+      
       this.cacheElements();
       this.attachEventListeners();
       this.createInitialParticipantRows();
@@ -478,10 +478,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const app = new LotteryApp();
     await app.init();
     
-    // Make app globally available for debugging
-    if (APP_CONFIG.development.enableDebugMode) {
-      window.LotteryApp = app;
-    }
+    // Make app globally available
+    window.LotteryApp = app;
+    
+    Utils.log('log', 'Application ready and globally available');
   } catch (error) {
     console.error('Failed to initialize Lottery App:', error);
   }

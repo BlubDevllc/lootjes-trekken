@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Lootjes Trekker</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .debug-log {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 12px;
+      max-width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .debug-success { color: #4CAF50; }
+    .debug-error { color: #F44336; }
+    .debug-warning { color: #FF9800; }
+  </style>
+</head>
+<body>
+  <div class="debug-log" id="debug-log">
+    <div>🐛 Debug Log:</div>
+  </div>
+
+  <div class="container">
+    <header class="app-header">
+      <h1 class="app-title">Lootjes Trekker (Debug)</h1>
+      <p class="app-subtitle">Debugging de module loading...</p>
+    </header>
+    
+    <main class="app-main">
+      <section class="section">
+        <h2 class="section-title">Deelnemers</h2>
+        <div id="participants-container">
+          <!-- Will be populated by JS -->
+        </div>
+        <button id="add-participant-btn" class="btn btn-success">+ Deelnemer toevoegen</button>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Loting</h2>
+        <input type="number" id="number-of-tickets" class="form-input" placeholder="Aantal te trekken" style="max-width: 200px; margin-bottom: 10px;">
+        <br>
+        <button id="draw-lottery-btn" class="btn btn-primary">Trek winnende lootjes</button>
+      </section>
+
+      <div id="lottery-results"></div>
+    </main>
+  </div>
+
+  <script>
+    const debugLog = document.getElementById('debug-log');
+    
+    function log(message, type = 'info') {
+      const div = document.createElement('div');
+      div.className = `debug-${type}`;
+      div.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+      debugLog.appendChild(div);
+      debugLog.scrollTop = debugLog.scrollHeight;
+      console.log(`[${type.toUpperCase()}] ${message}`);
+    }
+    
+    log('Starting debug session', 'info');
+    
+    // Test basic DOM elements
+    const container = document.getElementById('participants-container');
+    const addBtn = document.getElementById('add-participant-btn');
+    const drawBtn = document.getElementById('draw-lottery-btn');
+    
+    if (container && addBtn && drawBtn) {
+      log('✅ All DOM elements found', 'success');
+    } else {
+      log('❌ Some DOM elements missing', 'error');
+    }
+    
+    // Test basic button functionality first
+    let participantCount = 0;
+    
+    function addParticipantSimple() {
+      participantCount++;
+      const row = document.createElement('div');
+      row.className = 'participant-row';
+      row.innerHTML = `
+        <input type="text" class="form-input participant-name-input" placeholder="Naam deelnemer">
+        <input type="number" class="form-input participant-tickets-input" placeholder="Aantal" min="1">
+        <button class="btn btn-danger btn-sm" onclick="removeParticipant(this)">−</button>
+      `;
+      container.appendChild(row);
+      log(`✅ Participant row ${participantCount} added`, 'success');
+    }
+    
+    function removeParticipant(btn) {
+      btn.parentElement.remove();
+      log('✅ Participant removed', 'success');
+    }
+    
+    // Add initial participants
+    addParticipantSimple();
+    addParticipantSimple();
+    addParticipantSimple();
+    
+    // Add event listeners
+    addBtn.addEventListener('click', addParticipantSimple);
+    
+    drawBtn.addEventListener('click', () => {
+      log('🎲 Draw button clicked', 'info');
+      
+      const rows = document.querySelectorAll('.participant-row');
+      const participants = [];
+      
+      rows.forEach((row, index) => {
+        const name = row.querySelector('.participant-name-input').value.trim();
+        const tickets = parseInt(row.querySelector('.participant-tickets-input').value) || 0;
+        
+        if (name && tickets > 0) {
+          participants.push({ name, tickets });
+          log(`✅ Participant ${index + 1}: ${name} with ${tickets} tickets`, 'success');
+        } else {
+          log(`⚠️ Participant ${index + 1}: invalid data`, 'warning');
+        }
+      });
+      
+      if (participants.length === 0) {
+        log('❌ No valid participants found', 'error');
+        alert('Voer geldige deelnemers in!');
+        return;
+      }
+      
+      // Simple lottery
+      const allTickets = [];
+      participants.forEach(p => {
+        for (let i = 0; i < p.tickets; i++) {
+          allTickets.push(p.name);
+        }
+      });
+      
+      const winner = allTickets[Math.floor(Math.random() * allTickets.length)];
+      
+      const resultsDiv = document.getElementById('lottery-results');
+      resultsDiv.innerHTML = `
+        <div class="section">
+          <h2>🎉 Resultaat</h2>
+          <p><strong>Winnaar: ${winner}</strong></p>
+          <p>Totaal aantal lootjes: ${allTickets.length}</p>
+        </div>
+      `;
+      
+      log(`🎉 Winner: ${winner} (from ${allTickets.length} tickets)`, 'success');
+    });
+    
+    log('✅ Basic functionality loaded', 'success');
+    
+    // Now try to load the advanced modules
+    log('🔄 Attempting to load ES6 modules...', 'info');
+    
+    import('./assets/js/config.js')
+      .then(configModule => {
+        log('✅ Config module loaded', 'success');
+        window.APP_CONFIG = configModule.APP_CONFIG;
+        
+        return import('./assets/js/utils.js');
+      })
+      .then(utilsModule => {
+        log('✅ Utils module loaded', 'success');
+        window.Utils = utilsModule.Utils;
+        
+        return import('./assets/js/lottery-engine.js');
+      })
+      .then(engineModule => {
+        log('✅ LotteryEngine module loaded', 'success');
+        window.LotteryEngine = engineModule.LotteryEngine;
+        
+        return import('./assets/js/main.js');
+      })
+      .then(mainModule => {
+        log('✅ Main module loaded', 'success');
+        window.LotteryApp = mainModule.LotteryApp;
+        
+        log('🎉 All modules loaded successfully!', 'success');
+        log('🔄 Trying to initialize advanced app...', 'info');
+        
+        try {
+          const app = new window.LotteryApp();
+          // Don't call init() as it might interfere with our simple setup
+          log('✅ Advanced app created (not initialized)', 'success');
+        } catch (error) {
+          log(`❌ Advanced app creation failed: ${error.message}`, 'error');
+        }
+      })
+      .catch(error => {
+        log(`❌ Module loading failed: ${error.message}`, 'error');
+        log(`📍 Error stack: ${error.stack}`, 'error');
+      });
+  </script>
+</body>
+</html>

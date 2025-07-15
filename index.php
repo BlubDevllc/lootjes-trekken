@@ -111,5 +111,186 @@
 
   <!-- External JavaScript -->
   <script type="module" src="assets/js/main.js"></script>
+  
+  <!-- Fallback script for when modules fail -->
+  <script>
+    // Wait a bit for modules to load, then check if they loaded successfully
+    setTimeout(() => {
+      if (!window.LotteryApp) {
+        console.warn('ES6 modules failed to load, initializing fallback...');
+        initializeFallback();
+      }
+    }, 1000);
+    
+    function initializeFallback() {
+      console.log('🔄 Initializing fallback lottery system...');
+      
+      const container = document.getElementById('participants-container');
+      const addBtn = document.getElementById('add-participant-btn');
+      const drawBtn = document.getElementById('draw-lottery-btn');
+      
+      if (!container || !addBtn || !drawBtn) {
+        console.error('Required DOM elements not found');
+        return;
+      }
+      
+      let participantCount = 0;
+      
+      function addParticipant() {
+        participantCount++;
+        const row = document.createElement('div');
+        row.className = 'participant-row';
+        row.innerHTML = `
+          <input type="text" class="form-input participant-name-input" placeholder="Naam deelnemer" aria-label="Naam van deelnemer">
+          <input type="number" class="form-input participant-tickets-input" placeholder="Aantal" min="1" aria-label="Aantal lootjes">
+          <button class="btn btn-danger btn-sm participant-remove-btn" onclick="removeParticipant(this)" aria-label="Verwijder deelnemer">−</button>
+        `;
+        container.appendChild(row);
+        
+        // Add animation class
+        setTimeout(() => row.classList.add('participant-slide-in'), 10);
+        
+        console.log(`Participant row ${participantCount} added`);
+      }
+      
+      window.removeParticipant = function(btn) {
+        btn.parentElement.remove();
+        console.log('Participant removed');
+      };
+      
+      function drawLottery() {
+        const rows = document.querySelectorAll('.participant-row');
+        const participants = [];
+        
+        rows.forEach((row, index) => {
+          const name = row.querySelector('.participant-name-input').value.trim();
+          const tickets = parseInt(row.querySelector('.participant-tickets-input').value) || 0;
+          
+          if (name && tickets > 0) {
+            participants.push({ name, tickets });
+          }
+        });
+        
+        if (participants.length === 0) {
+          alert('Voer ten minste één deelnemer met een geldig aantal lootjes in.');
+          return;
+        }
+        
+        // Create all tickets
+        const allTickets = [];
+        participants.forEach(p => {
+          for (let i = 0; i < p.tickets; i++) {
+            allTickets.push(p.name);
+          }
+        });
+        
+        // Get number of tickets to draw
+        const numberOfTicketsInput = document.getElementById('number-of-tickets');
+        const numberOfTicketsToDraw = parseInt(numberOfTicketsInput.value) || allTickets.length;
+        const ticketsToDraw = Math.min(numberOfTicketsToDraw, allTickets.length);
+        
+        // Fisher-Yates shuffle
+        const shuffled = [...allTickets];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        const drawnTickets = shuffled.slice(0, ticketsToDraw);
+        
+        // Count winners
+        const winners = {};
+        drawnTickets.forEach(name => {
+          winners[name] = (winners[name] || 0) + 1;
+        });
+        
+        // Display results
+        const resultsContainer = document.getElementById('lottery-results');
+        let resultsHTML = `
+          <div class="section lottery-results">
+            <h2 class="section-title">🎉 Loting Resultaten</h2>
+            
+            <div class="lottery-stats grid-3 gap-md mb-xl">
+              <div class="stat-card">
+                <div class="stat-number">${participants.length}</div>
+                <div class="stat-label">Deelnemers</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${allTickets.length}</div>
+                <div class="stat-label">Totaal lootjes</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">${drawnTickets.length}</div>
+                <div class="stat-label">Getrokken lootjes</div>
+              </div>
+            </div>
+            
+            <div class="mb-xl">
+              <h3>🏆 Winnaars</h3>
+              <div class="winner-list">
+        `;
+        
+        Object.entries(winners)
+          .sort((a, b) => b[1] - a[1])
+          .forEach(([name, count]) => {
+            resultsHTML += `
+              <div class="winner-list-item">
+                <span class="winner-name">${name}</span>
+                <span class="winner-count">${count} ${count === 1 ? 'lootje' : 'lootjes'}</span>
+              </div>
+            `;
+          });
+        
+        resultsHTML += `
+              </div>
+            </div>
+            
+            <div>
+              <h3>📊 Kansen per deelnemer</h3>
+              <div class="chances-list">
+        `;
+        
+        participants.forEach(p => {
+          const percentage = ((p.tickets / allTickets.length) * 100).toFixed(1);
+          const wonTickets = winners[p.name] || 0;
+          resultsHTML += `
+            <div class="chances-list-item">
+              <span class="participant-name">${p.name}</span>
+              <span class="participant-chances">${percentage}% kans (${p.tickets}/${allTickets.length})</span>
+              <span class="participant-wins ${wonTickets > 0 ? 'has-wins' : 'no-wins'}">${wonTickets} gewonnen</span>
+            </div>
+          `;
+        });
+        
+        resultsHTML += `
+              </div>
+            </div>
+          </div>
+        `;
+        
+        resultsContainer.innerHTML = resultsHTML;
+        
+        // Scroll to results
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        
+        console.log('🎉 Lottery completed!', { winners, drawnTickets });
+      }
+      
+      // Add initial participant rows
+      addParticipant();
+      addParticipant();
+      addParticipant();
+      
+      // Add event listeners
+      addBtn.addEventListener('click', addParticipant);
+      drawBtn.addEventListener('click', drawLottery);
+      
+      // Also make functions globally available
+      window.voegRijToe = addParticipant;
+      window.trekLootjes = drawLottery;
+      
+      console.log('✅ Fallback lottery system initialized');
+    }
+  </script>
 </body>
 </html>

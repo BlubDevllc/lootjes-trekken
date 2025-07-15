@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border: 1px solid #ccc; }
+        .participant-row { display: flex; gap: 10px; margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
+        .form-input { padding: 8px; border: 1px solid #ccc; flex: 1; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Lootjes Trekker Test</h1>
+        
+        <div id="participants-container">
+            <div class="participant-row">
+                <input type="text" class="form-input" placeholder="Naam deelnemer" />
+                <input type="number" class="form-input" placeholder="Aantal lootjes" min="1" />
+                <button class="btn" onclick="removeRow(this)">Remove</button>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="addParticipant()">+ Deelnemer toevoegen</button>
+        <button class="btn" onclick="drawLottery()">Trek winnende lootjes</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function addParticipant() {
+            const container = document.getElementById('participants-container');
+            const row = document.createElement('div');
+            row.className = 'participant-row';
+            row.innerHTML = `
+                <input type="text" class="form-input" placeholder="Naam deelnemer" />
+                <input type="number" class="form-input" placeholder="Aantal lootjes" min="1" />
+                <button class="btn" onclick="removeRow(this)">Remove</button>
+            `;
+            container.appendChild(row);
+            console.log('Participant added');
+        }
+        
+        function removeRow(button) {
+            button.parentElement.remove();
+            console.log('Participant removed');
+        }
+        
+        function drawLottery() {
+            const rows = document.querySelectorAll('.participant-row');
+            const participants = [];
+            
+            rows.forEach(row => {
+                const name = row.querySelector('input[type="text"]').value;
+                const tickets = parseInt(row.querySelector('input[type="number"]').value) || 0;
+                if (name && tickets > 0) {
+                    participants.push({ name, tickets });
+                }
+            });
+            
+            if (participants.length === 0) {
+                alert('Voeg eerst deelnemers toe!');
+                return;
+            }
+            
+            // Simple lottery logic
+            const allTickets = [];
+            participants.forEach(p => {
+                for (let i = 0; i < p.tickets; i++) {
+                    allTickets.push(p.name);
+                }
+            });
+            
+            const winner = allTickets[Math.floor(Math.random() * allTickets.length)];
+            document.getElementById('results').innerHTML = `<h3>Winnaar: ${winner}</h3>`;
+            console.log('Lottery drawn, winner:', winner);
+        }
+        
+        console.log('Simple test page loaded');
+    </script>
+</body>
+</html>
