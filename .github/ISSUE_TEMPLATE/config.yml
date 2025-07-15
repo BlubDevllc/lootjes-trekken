@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name:  Direct Contact
+    url: mailto:Davedevisser03@gmail.com
+    about: For private discussions, licensing questions, or critical security issues
+  - name:  Project Documentation
+    url: https://github.com/BlubDevllc/lootjes-trekken/tree/main/docs
+    about: Complete documentation including architecture, beginner guides, and license information
+  - name:  Security Policy
+    url: https://github.com/BlubDevllc/lootjes-trekken/blob/main/SECURITY.md
+    about: Security reporting guidelines and responsible disclosure information
+  - name:  License Information
+    url: https://github.com/BlubDevllc/lootjes-trekken/blob/main/docs/LICENSE_UITLEG.md
+    about: Detailed explanation of the SCVL license terms and restrictions
+  - name:  Contributing Guidelines
+    url: https://github.com/BlubDevllc/lootjes-trekken/blob/main/CONTRIBUTING.md
+    about: How to contribute to this educational project within license restrictions

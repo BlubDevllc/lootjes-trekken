@@ -1,0 +1,229 @@
+name: Security Vulnerability
+description: Report a security issue (CONFIDENTIAL - Do not use for non-security issues)
+title: "[SECURITY] "
+labels: ["security", "critical"]
+assignees:
+  - BlubDevllc
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **SECURITY NOTICE** ⚠️
+        
+        **For Critical Security Issues**: Please DO NOT use this public form. Instead, email directly to: Davedevisser03@gmail.com
+        
+        **Use this form only for**:
+        - Non-critical security suggestions
+        - Security best practices discussions
+        - Educational security topics
+        
+        **For Critical Issues** (XSS, RCE, data exposure):
+        - Email: Davedevisser03@gmail.com
+        - Subject: "SECURITY: Lootjes Trekker Vulnerability"
+        - Include all details privately
+
+  - type: checkboxes
+    id: security-acknowledgment
+    attributes:
+      label: Security Acknowledgment
+      description: Please confirm you understand our security policy
+      options:
+        - label: I have read the [Security Policy](../SECURITY.md)
+          required: true
+        - label: This is NOT a critical security issue (or I've already emailed privately)
+          required: true
+        - label: I understand responsible disclosure practices
+          required: true
+
+  - type: dropdown
+    id: security-type
+    attributes:
+      label: Security Issue Type
+      description: What type of security issue is this?
+      options:
+        - Security best practice suggestion
+        - Non-critical vulnerability
+        - Security documentation improvement
+        - Educational security content
+        - Security configuration advice
+        - Dependencies security review
+        - Privacy concern
+        - Other security topic
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity-level
+    attributes:
+      label: Severity Level
+      description: How severe is this security issue?
+      options:
+        - Informational (best practices, suggestions)
+        - Low (minimal security impact)
+        - Medium (moderate security concern)
+        - High (significant security issue - consider private email)
+        - Critical (serious vulnerability - USE PRIVATE EMAIL ONLY)
+    validations:
+      required: true
+
+  - type: textarea
+    id: security-description
+    attributes:
+      label: Security Issue Description
+      description: |
+        Describe the security concern clearly but avoid posting exploit details publicly
+      placeholder: |
+        General description of the security concern...
+        (Avoid detailed exploit instructions in public)
+    validations:
+      required: true
+
+  - type: textarea
+    id: potential-impact
+    attributes:
+      label: Potential Impact
+      description: |
+        What could an attacker potentially do? What's the worst-case scenario?
+      placeholder: |
+        Potential impact includes...
+        This could allow an attacker to...
+
+  - type: textarea
+    id: affected-components
+    attributes:
+      label: Affected Components
+      description: |
+        Which parts of the application are affected?
+      placeholder: |
+        Affected files/components:
+        - File: assets/js/main.js
+        - Function: validateInput()
+        - Component: participant input handling
+
+  - type: textarea
+    id: reproduction-info
+    attributes:
+      label: General Reproduction Information
+      description: |
+        Provide general steps to understand the issue (avoid detailed exploits in public)
+      placeholder: |
+        General steps to see the issue:
+        1. Navigate to...
+        2. Enter specific type of input...
+        3. Observe behavior...
+        
+        (Detailed exploit steps should be sent via private email)
+
+  - type: textarea
+    id: mitigation-suggestions
+    attributes:
+      label: Suggested Mitigation
+      description: |
+        Do you have suggestions for how to fix or mitigate this issue?
+      placeholder: |
+        Possible solutions:
+        - Input validation should...
+        - Consider using...
+        - Add security headers...
+
+  - type: dropdown
+    id: browser-environment
+    attributes:
+      label: Browser/Environment
+      description: Which browsers or environments are affected?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile browsers
+        - All browsers
+        - Specific environment (describe below)
+
+  - type: textarea
+    id: security-research
+    attributes:
+      label: Security Research Context
+      description: |
+        Is this part of security research or educational analysis?
+      placeholder: |
+        Research context:
+        - Part of security course assignment
+        - Personal security learning
+        - Responsible disclosure practice
+        - Code review findings
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: |
+        Any relevant security references, CVEs, or documentation
+      placeholder: |
+        Related to:
+        - OWASP guidelines: ...
+        - Similar issues: ...
+        - Security best practices: ...
+
+  - type: checkboxes
+    id: responsible-disclosure
+    attributes:
+      label: Responsible Disclosure
+      description: Please confirm responsible disclosure practices
+      options:
+        - label: I will not publicly share detailed exploit information
+        - label: I will not use this vulnerability for malicious purposes
+        - label: I understand this may be part of a learning/educational context
+        - label: I will allow reasonable time for fixes before any disclosure
+        - label: I will follow up privately for serious issues
+
+  - type: textarea
+    id: educational-value
+    attributes:
+      label: Educational Value
+      description: |
+        How does this contribute to security education and learning?
+      placeholder: |
+        This helps people learn about:
+        - Common web security issues
+        - Input validation importance
+        - Secure coding practices
+        - Security testing methods
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Security Response Process
+        
+        **For Non-Critical Issues (using this form):**
+        1. ✅ We'll acknowledge within 24-48 hours
+        2. ✅ We'll assess the severity and impact
+        3. ✅ We'll develop and test a fix
+        4. ✅ We'll implement the solution
+        5. ✅ We'll credit you in our security acknowledgments
+        
+        **For Critical Issues (private email required):**
+        - 🔐 Email: Davedevisser03@gmail.com
+        - 🔐 Subject: "SECURITY: Critical Vulnerability"
+        - 🔐 We respond within 24 hours to critical issues
+        - 🔐 We follow coordinated disclosure practices
+        
+        ## Educational Security Value
+        
+        Security reports help the learning community understand:
+        - **Common web vulnerabilities** and how to prevent them
+        - **Security testing methodologies** and responsible disclosure
+        - **Secure coding practices** in modern web development
+        - **Real-world security considerations** for applications
+        
+        ## Safe Harbor
+        
+        We support responsible security research:
+        - ✅ We won't pursue legal action for good-faith security research
+        - ✅ We'll work with researchers to understand and fix issues
+        - ✅ We provide public credit for valid security findings
+        - ✅ We prioritize educational value and community safety
+        
+        Thank you for helping keep our educational project secure! 🔒

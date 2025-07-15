@@ -1,0 +1,242 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for the Lootjes Trekker
+title: "[FEATURE] "
+labels: ["enhancement", "needs-discussion"]
+assignees:
+  - BlubDevllc
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please note that due to the SCVL license, all feature implementations must be approved by the project owner.
+
+  - type: checkboxes
+    id: license-acknowledgment
+    attributes:
+      label: License Acknowledgment
+      description: Please confirm you understand the project license restrictions
+      options:
+        - label: I understand this is an SCVL-licensed project with restrictions
+          required: true
+        - label: This suggestion is for educational/improvement purposes
+          required: true
+        - label: I understand that feature implementation requires owner approval
+          required: true
+
+  - type: textarea
+    id: feature-summary
+    attributes:
+      label: Feature Summary
+      description: A brief, clear summary of the feature you'd like to see
+      placeholder: "Add ability to..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: Feature Category
+      description: What type of feature is this?
+      options:
+        - User Interface (UI) Improvement
+        - User Experience (UX) Enhancement
+        - Accessibility Feature
+        - Performance Optimization
+        - Educational Feature
+        - Documentation Enhancement
+        - Mobile/Responsive Improvement
+        - Algorithm Enhancement
+        - Internationalization (i18n)
+        - Security Improvement
+        - Developer Experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: |
+        What problem does this feature solve? What's the current pain point?
+      placeholder: |
+        Currently, users struggle with...
+        The existing implementation lacks...
+        It would be helpful if...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: |
+        Describe your proposed solution in detail
+      placeholder: |
+        I propose adding...
+        This could work by...
+        The user would be able to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: User Stories
+      description: |
+        Write user stories to describe how this feature would be used
+      placeholder: |
+        As a [type of user], I want [feature] so that [benefit].
+        
+        Example:
+        - As a teacher, I want to export results so that I can share them with students
+        - As a student, I want keyboard shortcuts so that I can use the app more efficiently
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user-type
+    attributes:
+      label: Primary User Type
+      description: Who would primarily benefit from this feature?
+      multiple: true
+      options:
+        - Students (learning programming)
+        - Teachers/Educators
+        - Professional Developers
+        - Casual Users
+        - Accessibility Users
+        - Mobile Users
+        - International Users
+        - All Users
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - Critical (Essential for basic functionality)
+        - High (Would significantly improve the experience)
+        - Medium (Nice to have improvement)
+        - Low (Minor enhancement)
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: |
+        Describe any alternative solutions or features you've considered
+      placeholder: |
+        Alternative 1: ...
+        Alternative 2: ...
+        Why the proposed solution is better...
+
+  - type: textarea
+    id: implementation-ideas
+    attributes:
+      label: Implementation Ideas
+      description: |
+        If you have technical ideas about how this could be implemented, share them here
+        (Remember: actual implementation requires owner approval due to SCVL license)
+      placeholder: |
+        This could be implemented by...
+        Possible technical approaches...
+        Libraries or techniques that could help...
+
+  - type: checkboxes
+    id: technical-considerations
+    attributes:
+      label: Technical Considerations
+      description: Please check all that apply to your feature request
+      options:
+        - label: This feature should work on mobile devices
+        - label: This feature should be accessible (screen readers, keyboard navigation)
+        - label: This feature should work offline
+        - label: This feature should be fast/performant
+        - label: This feature should support multiple languages
+        - label: This feature should work on older browsers
+        - label: This feature requires no external dependencies
+
+  - type: textarea
+    id: educational-value
+    attributes:
+      label: Educational Value
+      description: |
+        How would this feature benefit people learning from this project?
+      placeholder: |
+        This feature would teach...
+        Students could learn about...
+        It demonstrates the concept of...
+
+  - type: textarea
+    id: examples-mockups
+    attributes:
+      label: Examples or Mockups
+      description: |
+        Provide examples, mockups, or references to similar features in other applications
+        You can drag and drop images here
+      placeholder: |
+        Similar to: [app name/website]
+        Example: [link or description]
+        
+        Drag and drop mockup images here...
+
+  - type: dropdown
+    id: breaking-changes
+    attributes:
+      label: Breaking Changes
+      description: Would this feature require breaking changes to existing functionality?
+      options:
+        - No breaking changes
+        - Minor breaking changes
+        - Major breaking changes
+        - Unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context, links, or information about the feature request
+      placeholder: |
+        Related issues: #123
+        Inspiration from: [link]
+        Additional considerations...
+
+  - type: checkboxes
+    id: research-checklist
+    attributes:
+      label: Research Checklist
+      description: Please confirm you've done this research
+      options:
+        - label: I searched existing issues for similar requests
+        - label: I checked if this feature already exists
+        - label: I considered the educational value of this feature
+        - label: I thought about accessibility implications
+        - label: I considered mobile users
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank You for Your Suggestion!
+        
+        **Next Steps:**
+        1. We'll review your feature request
+        2. We may ask for clarification or additional details  
+        3. If approved, we'll discuss implementation timeline
+        4. The community can discuss and refine the idea
+        
+        **Educational Impact:**
+        Your feature suggestion helps improve the learning experience for:
+        - Programming students studying this codebase
+        - Developers learning modern web development practices
+        - Anyone interested in lottery algorithm implementations
+        
+        **License Reminder:**
+        Due to the SCVL license, any approved features will be implemented by the project owner. However, your suggestions and feedback are invaluable for making this educational resource better!

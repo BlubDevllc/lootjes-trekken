@@ -1,0 +1,257 @@
+name: Documentation
+description: Report issues or suggest improvements to documentation
+title: "[DOCS] "
+labels: ["documentation", "good first issue"]
+assignees:
+  - BlubDevllc
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve our documentation! Good documentation is essential for learning and education.
+
+  - type: checkboxes
+    id: license-acknowledgment
+    attributes:
+      label: License Acknowledgment
+      description: Please confirm you understand the project license
+      options:
+        - label: I understand this is an educational project with SCVL license restrictions
+          required: true
+        - label: My documentation suggestions are for educational improvement
+          required: true
+
+  - type: dropdown
+    id: documentation-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation issue is this?
+      options:
+        - Error/Typo in existing documentation
+        - Missing documentation
+        - Unclear instructions
+        - Outdated information
+        - Translation needed
+        - New educational content suggestion
+        - Code comments improvement
+        - API documentation
+        - Installation instructions
+        - Usage examples
+        - Architecture explanation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-docs
+    attributes:
+      label: Affected Documentation
+      description: Which documentation files are affected?
+      multiple: true
+      options:
+        - README.md
+        - docs/PROJECT_STRUCTURE.md
+        - docs/LICENSE_UITLEG.md
+        - docs/UITLEG_VOOR_BEGINNERS.md
+        - docs/DOCUMENTATIE_OVERZICHT.md
+        - CONTRIBUTING.md
+        - CODE_OF_CONDUCT.md
+        - SECURITY.md
+        - Code comments in JavaScript files
+        - Code comments in CSS files
+        - HTML comments
+        - Other file (specify below)
+
+  - type: textarea
+    id: current-documentation
+    attributes:
+      label: Current Documentation
+      description: |
+        What does the current documentation say? (Copy/paste the relevant section)
+      placeholder: |
+        Current text:
+        "..."
+        
+        Or: "This section is missing"
+      render: markdown
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Issue Description
+      description: |
+        What's wrong with the current documentation? What's confusing or missing?
+      placeholder: |
+        The current documentation is confusing because...
+        This section is missing information about...
+        The instructions don't work because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-improvement
+    attributes:
+      label: Suggested Improvement
+      description: |
+        How should the documentation be improved? What should it say instead?
+      placeholder: |
+        Suggested text:
+        "..."
+        
+        Or describe what should be added...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target-audience
+    attributes:
+      label: Target Audience
+      description: Who would benefit most from this documentation improvement?
+      multiple: true
+      options:
+        - Complete beginners to programming
+        - Beginning web developers
+        - Intermediate developers
+        - Advanced developers
+        - Students
+        - Teachers/Educators
+        - People learning JavaScript
+        - People learning CSS
+        - People learning HTML
+        - All audiences
+
+  - type: dropdown
+    id: difficulty-level
+    attributes:
+      label: Difficulty Level
+      description: What skill level should this documentation target?
+      options:
+        - Beginner (no programming experience)
+        - Novice (some programming basics)
+        - Intermediate (comfortable with web development)
+        - Advanced (experienced developers)
+        - Expert (deep technical details)
+        - Mixed (suitable for multiple levels)
+    validations:
+      required: true
+
+  - type: textarea
+    id: educational-context
+    attributes:
+      label: Educational Context
+      description: |
+        How would this documentation improvement help people learn?
+      placeholder: |
+        This would help students understand...
+        This explains an important concept...
+        This provides a real-world example of...
+
+  - type: checkboxes
+    id: improvement-type
+    attributes:
+      label: Type of Improvement
+      description: What kind of improvement is this?
+      options:
+        - label: Fix factual errors
+        - label: Improve clarity and readability
+        - label: Add missing information
+        - label: Provide better examples
+        - label: Add visual aids (diagrams, screenshots)
+        - label: Improve organization/structure
+        - label: Add step-by-step instructions
+        - label: Translate to another language
+        - label: Make more beginner-friendly
+        - label: Add advanced technical details
+
+  - type: textarea
+    id: examples-references
+    attributes:
+      label: Examples or References
+      description: |
+        Provide examples of good documentation or references that inspired your suggestion
+      placeholder: |
+        Good example: [link to documentation]
+        Similar approach: [project/website]
+        Reference material: [book/article]
+
+  - type: textarea
+    id: specific-location
+    attributes:
+      label: Specific Location
+      description: |
+        Where exactly should this change be made? (file name, section, line numbers)
+      placeholder: |
+        File: docs/README.md
+        Section: "Installation"
+        Line: 45-50
+        
+        Or: "New section needed in..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this documentation fix/improvement?
+      options:
+        - Critical (Prevents users from using the application)
+        - High (Significantly improves understanding)
+        - Medium (Good improvement for learning)
+        - Low (Minor enhancement)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Any additional information, context, or suggestions
+      placeholder: |
+        Related to issue: #123
+        This came up when: ...
+        Additional considerations: ...
+
+  - type: checkboxes
+    id: research-checklist
+    attributes:
+      label: Research Checklist
+      description: Please confirm you've done this research
+      options:
+        - label: I searched existing issues for similar documentation requests
+        - label: I read through the current documentation thoroughly
+        - label: I checked if this information exists elsewhere in the docs
+        - label: I considered the target audience for this change
+        - label: I thought about how this fits with existing documentation
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank You for Improving Our Documentation!
+        
+        **Why Documentation Matters:**
+        - Helps beginners learn programming concepts
+        - Makes the project more accessible
+        - Demonstrates professional development practices
+        - Creates a better educational resource
+        
+        **Next Steps:**
+        1. We'll review your documentation suggestion
+        2. We may discuss implementation details
+        3. We'll update the documentation accordingly
+        4. Your contribution will be credited
+        
+        **Educational Impact:**
+        Your documentation improvements help:
+        - Students learning web development
+        - Teachers using this as a teaching resource
+        - Developers studying modern JavaScript/CSS patterns
+        - Anyone interested in lottery algorithms
+        
+        **Contributing to Documentation:**
+        Documentation contributions are especially welcome because they:
+        - Don't conflict with the SCVL license restrictions
+        - Directly improve the educational value
+        - Help build a supportive learning community

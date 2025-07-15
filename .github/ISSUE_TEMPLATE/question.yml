@@ -1,0 +1,243 @@
+name: Question
+description: Ask a question about the project, code, or how something works
+title: "[QUESTION] "
+labels: ["question", "help wanted"]
+assignees:
+  - BlubDevllc
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome! Questions are encouraged - this project has educational value and we're here to help you learn.
+
+  - type: checkboxes
+    id: license-acknowledgment
+    attributes:
+      label: License Acknowledgment
+      description: Please confirm you understand the project license
+      options:
+        - label: I understand this is an educational project with SCVL license restrictions
+          required: true
+        - label: My question is for learning/educational purposes
+          required: true
+
+  - type: dropdown
+    id: question-category
+    attributes:
+      label: Question Category
+      description: What type of question is this?
+      options:
+        - How does the code work?
+        - Why was this approach chosen?
+        - How to implement similar functionality?
+        - Understanding the algorithm
+        - JavaScript/ES6+ concepts
+        - CSS architecture questions
+        - Project structure questions
+        - License and usage questions
+        - Contributing guidelines
+        - Getting started help
+        - Performance questions
+        - Best practices
+        - Educational use cases
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: skill-level
+    attributes:
+      label: Your Programming Level
+      description: This helps us tailor our answer appropriately
+      options:
+        - Complete beginner (new to programming)
+        - Beginner (some programming basics)
+        - Intermediate (comfortable with web development)
+        - Advanced (experienced developer)
+        - Expert (deep technical background)
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: |
+        Ask your question clearly and specifically. The more details you provide, the better we can help.
+      placeholder: |
+        I'm trying to understand...
+        I noticed that...
+        How does...
+        Why does...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and Background
+      description: |
+        Provide context about what you're trying to learn or achieve
+      placeholder: |
+        I'm learning about...
+        I'm working on a project that...
+        I'm studying...
+        I saw this pattern and...
+
+  - type: textarea
+    id: specific-code
+    attributes:
+      label: Specific Code Reference
+      description: |
+        If your question is about specific code, please reference it here
+      placeholder: |
+        File: assets/js/lottery-engine.js
+        Lines: 45-60
+        Function: fisherYatesShuffle()
+        
+        Or paste the specific code snippet...
+      render: text
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What Have You Tried?
+      description: |
+        What have you already tried to understand or solve this?
+      placeholder: |
+        I read the documentation...
+        I tried searching for...
+        I looked at similar projects...
+        I experimented with...
+
+  - type: dropdown
+    id: learning-goal
+    attributes:
+      label: Learning Goal
+      description: What are you hoping to learn from this question?
+      multiple: true
+      options:
+        - Understanding JavaScript concepts
+        - Learning CSS architecture
+        - Understanding algorithms
+        - Modern web development practices
+        - Project organization
+        - Performance optimization
+        - Accessibility concepts
+        - User experience design
+        - Software engineering principles
+        - Problem-solving approaches
+        - Other
+
+  - type: textarea
+    id: expected-answer
+    attributes:
+      label: What Kind of Answer Would Help?
+      description: |
+        What type of explanation would be most helpful to you?
+      placeholder: |
+        A simple explanation because...
+        Technical details about...
+        Step-by-step breakdown of...
+        Examples of how to...
+        Comparison with other approaches...
+
+  - type: checkboxes
+    id: answer-preferences
+    attributes:
+      label: Answer Preferences
+      description: What would make the answer most helpful for you?
+      options:
+        - label: Simple, beginner-friendly explanation
+        - label: Technical details and advanced concepts
+        - label: Code examples and demonstrations
+        - label: Visual diagrams or illustrations
+        - label: Comparison with alternatives
+        - label: Links to additional learning resources
+        - label: Step-by-step breakdown
+        - label: Real-world applications
+
+  - type: textarea
+    id: research-done
+    attributes:
+      label: Research Already Done
+      description: |
+        What documentation have you already checked?
+      placeholder: |
+        ✅ Read README.md
+        ✅ Checked PROJECT_STRUCTURE.md
+        ✅ Looked at UITLEG_VOOR_BEGINNERS.md
+        ✅ Searched existing issues
+        ✅ Googled for similar questions
+        ❌ Haven't checked: ...
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How urgent is this question for you?
+      options:
+        - Not urgent (general curiosity/learning)
+        - Somewhat urgent (part of current learning)
+        - Urgent (needed for assignment/project)
+        - Very urgent (blocking current work)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Any other information that might help us answer your question
+      placeholder: |
+        I'm using this for: ...
+        My goal is to: ...
+        I'm having trouble with: ...
+        Related questions: ...
+
+  - type: checkboxes
+    id: question-checklist
+    attributes:
+      label: Question Checklist
+      description: Please confirm before submitting
+      options:
+        - label: I searched existing issues for similar questions
+        - label: I checked the documentation first
+        - label: My question is clear and specific
+        - label: I provided sufficient context
+        - label: This is for educational/learning purposes
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Great Question! 🎓
+        
+        **Why Questions Matter:**
+        - Questions help improve our documentation
+        - They create learning opportunities for others
+        - They help us understand what concepts need better explanation
+        - They build a supportive learning community
+        
+        **What Happens Next:**
+        1. We'll review your question within 24-48 hours
+        2. We'll provide a detailed, educational answer
+        3. Other community members may also help
+        4. Your question may inspire documentation improvements
+        
+        **Learning Benefits:**
+        Your question helps the entire learning community:
+        - **Students** can learn from the answers
+        - **Teachers** can use these Q&As as teaching materials
+        - **Developers** can see real problem-solving approaches
+        - **Everyone** benefits from clearer explanations
+        
+        **Educational Philosophy:**
+        We believe that:
+        - No question is too basic or too advanced
+        - Learning is a collaborative process
+        - Understanding comes through asking and explaining
+        - Good questions deserve thoughtful answers
+        
+        **Keep Learning!** 🚀
