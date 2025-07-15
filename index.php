@@ -55,58 +55,61 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Lootjes Trekker - Beheerder Paneel</h1>
-      <p class="subtitle">Gratis online tool voor eerlijke digitale lotingen</p>
+    <header class="app-header">
+      <h1 class="app-title">Lootjes Trekker</h1>
+      <p class="app-subtitle">Gratis online tool voor eerlijke digitale lotingen</p>
     </header>
     
-    <main>
-      <section aria-label="Deelnemers invoer">
-        <div class="label">Deelnemers en hun aantal lootjes:</div>
-        <div id="personenContainer" role="group" aria-label="Deelnemers lijst">
-        <div class="persoon-rij">
-          <input type="text" placeholder="Naam deelnemer" class="naam-input" aria-label="Naam van deelnemer">
-          <input type="number" placeholder="Aantal" min="1" class="aantal-input" aria-label="Aantal lootjes">
-          <button onclick="verwijderRij(this)" aria-label="Verwijder deze deelnemer">-</button>
+    <main class="app-main">
+      <section class="section" aria-label="Deelnemers invoer">
+        <h2 class="section-title">Deelnemers en hun aantal lootjes</h2>
+        <div id="participants-container" role="group" aria-label="Deelnemers lijst" class="custom-scrollbar">
+          <!-- Participant rows will be added here dynamically -->
         </div>
-        <div class="persoon-rij">
-          <input type="text" placeholder="Naam deelnemer" class="naam-input" aria-label="Naam van deelnemer">
-          <input type="number" placeholder="Aantal" min="1" class="aantal-input" aria-label="Aantal lootjes">
-          <button onclick="verwijderRij(this)" aria-label="Verwijder deze deelnemer">-</button>
-        </div>
-        <div class="persoon-rij">
-          <input type="text" placeholder="Naam deelnemer" class="naam-input" aria-label="Naam van deelnemer">
-          <input type="number" placeholder="Aantal" min="1" class="aantal-input" aria-label="Aantal lootjes">
-          <button onclick="verwijderRij(this)" aria-label="Verwijder deze deelnemer">-</button>
-        </div>
-      </div>
-      
-      <button id="addButton" onclick="voegRijToe()" aria-label="Voeg nieuwe deelnemer toe">+ Deelnemer toevoegen</button>
+        
+        <button id="add-participant-btn" class="btn btn-success btn-pulse no-print" aria-label="Voeg nieuwe deelnemer toe">
+          + Deelnemer toevoegen
+        </button>
       </section>
       
-      <section aria-label="Loting instellingen">
-        <div class="label" style="margin-top: 20px;">Aantal lootjes om te trekken (laat leeg voor alle):</div>
-        <input type="number" id="aantalTeTrekken" min="1" placeholder="Bijv. 40" style="width: 200px;" aria-label="Aantal lootjes om te trekken">
-        
-        <div>
-          <button id="trekButton" onclick="trekLootjes()" aria-label="Start de loting">Trek winnende lootjes</button>
+      <section class="section" aria-label="Loting instellingen">
+        <h2 class="section-title">Loting instellingen</h2>
+        <div class="form-group">
+          <label for="number-of-tickets" class="form-label">
+            Aantal lootjes om te trekken (laat leeg voor alle):
+          </label>
+          <input type="number" 
+                 id="number-of-tickets" 
+                 class="form-input" 
+                 min="1" 
+                 placeholder="Bijv. 40" 
+                 style="max-width: 200px;"
+                 aria-label="Aantal lootjes om te trekken">
         </div>
+        
+        <button id="draw-lottery-btn" 
+                class="btn btn-primary btn-lg no-print" 
+                aria-label="Start de loting">
+          Trek winnende lootjes
+        </button>
       </section>
 
-      <section id="result" aria-live="polite" aria-label="Loting resultaten"></section>
+      <section id="lottery-results" aria-live="polite" aria-label="Loting resultaten">
+        <!-- Results will be displayed here -->
+      </section>
     </main>
     
-    <footer style="margin-top: 40px; text-align: center; color: #718096; font-size: 0.9em;">
+    <footer class="app-footer">
       <p>© 2025 Lootjes Trekker - Gratis online loting tool voor iedereen</p>
       <p>Eerlijk • Transparant • Betrouwbaar</p>
     </footer>
   </div>
 
   <!-- External JavaScript -->
-  <script src="script.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

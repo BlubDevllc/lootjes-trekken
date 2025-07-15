@@ -1,0 +1,338 @@
+/**
+ * Lottery-Specific Components
+ * Custom components for the lottery application
+ * 
+ * @version 2.0.0
+ * @author BlubDevllc
+ * @description Lottery-specific UI components and animations
+ */
+
+/* === PARTICIPANT MANAGEMENT === */
+.participant-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  background: linear-gradient(135deg, var(--pure-white), #FFFDF7);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-normal);
+  animation: participantSlideIn 0.4s ease-out;
+}
+
+.participant-row:hover {
+  transform: translateX(8px) scale(1.01);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--primary-gold);
+  background: linear-gradient(135deg, #FFF9E6, #FFFBF0);
+}
+
+@keyframes participantSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.participant-row .form-input {
+  margin-bottom: 0;
+}
+
+.participant-row .form-input:first-child {
+  flex: 1;
+}
+
+.participant-row .form-input[type="number"] {
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.participant-remove-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  background: var(--gradient-danger);
+  color: var(--pure-white);
+  border: 2px solid var(--danger-red);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.participant-remove-btn:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--shadow-red);
+  animation: deleteShake 0.3s ease-in-out;
+}
+
+.participant-remove-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes deleteShake {
+  0%, 100% { 
+    transform: scale(1.1) rotate(-5deg); 
+  }
+  25% { 
+    transform: scale(1.1) rotate(-8deg); 
+  }
+  75% { 
+    transform: scale(1.1) rotate(-2deg); 
+  }
+}
+
+/* === LOTTERY RESULTS === */
+.lottery-results {
+  margin-top: var(--space-2xl);
+  background: linear-gradient(135deg, #FFF9E6, #FFFDF7);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--secondary-gold);
+  border-left: 5px solid var(--primary-gold);
+  box-shadow: var(--shadow-heavy);
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lottery-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.stat-card {
+  background: var(--pure-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--primary-gold);
+  transition: all var(--transition-normal);
+  animation: popIn 0.5s ease-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-gold);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.stat-number {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--deep-purple);
+  text-shadow: 1px 1px 2px var(--shadow-color);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.stat-label {
+  font-size: var(--font-size-base);
+  color: var(--medium-gray);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === WINNER LIST === */
+.winner-list {
+  counter-reset: winner-counter;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.winner-list-item {
+  counter-increment: winner-counter;
+  margin-bottom: var(--space-md);
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #E8F5E8, #F0FFF0);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--lucky-green);
+  border-left: 4px solid var(--emerald-green);
+  position: relative;
+  padding-left: var(--space-3xl);
+  transition: all var(--transition-normal);
+  animation: winnersReveal 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.winner-list-item:hover {
+  transform: translateX(10px) scale(1.01);
+  box-shadow: var(--shadow-green);
+}
+
+@keyframes winnersReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Staggered animation delays */
+.winner-list-item:nth-child(1) { animation-delay: 0.1s; }
+.winner-list-item:nth-child(2) { animation-delay: 0.2s; }
+.winner-list-item:nth-child(3) { animation-delay: 0.3s; }
+.winner-list-item:nth-child(4) { animation-delay: 0.4s; }
+.winner-list-item:nth-child(5) { animation-delay: 0.5s; }
+.winner-list-item:nth-child(n+6) { animation-delay: 0.6s; }
+
+.winner-list-item::before {
+  content: counter(winner-counter);
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--gradient-primary);
+  color: var(--deep-purple);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  border: 2px solid var(--pure-white);
+  box-shadow: var(--shadow-medium);
+}
+
+.winner-name {
+  font-weight: var(--font-weight-bold);
+  color: var(--forest-green);
+  font-size: var(--font-size-lg);
+}
+
+/* === CHANCES DISPLAY === */
+.chances-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.chances-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-sm);
+  background: var(--pure-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.chances-list-item:hover {
+  background: linear-gradient(135deg, #FFF9E6, #FFFBF0);
+  border-color: var(--light-gold);
+  transform: translateX(5px);
+}
+
+.participant-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--dark-text);
+}
+
+.participant-chances {
+  color: var(--medium-gray);
+  font-size: var(--font-size-sm);
+}
+
+.participant-wins {
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.participant-wins.has-wins {
+  background: var(--emerald-green);
+  color: var(--pure-white);
+}
+
+.participant-wins.no-wins {
+  background: var(--medium-gray);
+  color: var(--pure-white);
+}
+
+/* === LOTTERY BALLS DECORATION === */
+.lottery-balls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: var(--space-xl) 0;
+}
+
+.lottery-ball {
+  width: 20px;
+  height: 20px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-medium);
+  animation: ballBounce 2s infinite ease-in-out;
+}
+
+.lottery-ball:nth-child(2) { animation-delay: 0.2s; }
+.lottery-ball:nth-child(3) { animation-delay: 0.4s; }
+.lottery-ball:nth-child(4) { animation-delay: 0.6s; }
+.lottery-ball:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes ballBounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.1); 
+  }
+}
+
+/* === EXECUTION TIME DISPLAY === */
+.execution-time {
+  text-align: center;
+  color: var(--medium-gray);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xl);
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}

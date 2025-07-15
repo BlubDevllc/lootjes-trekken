@@ -1,0 +1,151 @@
+/**
+ * CSS Custom Properties (Variables)
+ * Lottery Theme Color Palette & Design System
+ * 
+ * @version 2.0.0
+ * @author BlubDevllc
+ * @description Centralized design tokens for consistent theming
+ */
+
+:root {
+  /* === LOTTERY THEME COLOR PALETTE === */
+  
+  /* Primary Colors - Gold Theme */
+  --primary-gold: #FFD700;
+  --secondary-gold: #FFA500;
+  --light-gold: #FFEC8B;
+  --dark-gold: #B8860B;
+  
+  /* Secondary Colors - Royal Purple */
+  --deep-purple: #4A148C;
+  --royal-purple: #6A1B9A;
+  --light-purple: #BA68C8;
+  --dark-purple: #2E0854;
+  
+  /* Accent Colors - Lucky Green */
+  --emerald-green: #00C851;
+  --lucky-green: #00E676;
+  --forest-green: #1B5E20;
+  --light-green: #C8E6C9;
+  
+  /* Status Colors */
+  --danger-red: #FF3D00;
+  --soft-red: #FF6B6B;
+  --warning-orange: #FF9800;
+  --success-green: var(--emerald-green);
+  
+  /* Neutral Colors */
+  --pure-white: #FFFFFF;
+  --light-gray: #F8F9FA;
+  --medium-gray: #6C757D;
+  --dark-gray: #495057;
+  --dark-text: #2C3E50;
+  --border-light: #E9ECEF;
+  --border-medium: #DEE2E6;
+  
+  /* === GRADIENTS === */
+  --gradient-primary: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-purple) 100%);
+  --gradient-success: linear-gradient(135deg, var(--emerald-green) 0%, var(--lucky-green) 100%);
+  --gradient-danger: linear-gradient(135deg, var(--danger-red) 0%, var(--soft-red) 100%);
+  --gradient-background: linear-gradient(135deg, var(--deep-purple) 0%, var(--royal-purple) 50%, var(--dark-purple) 100%);
+  
+  /* === SHADOWS === */
+  --shadow-color: rgba(74, 20, 140, 0.15);
+  --shadow-light: 0 2px 8px var(--shadow-color);
+  --shadow-medium: 0 4px 15px var(--shadow-color);
+  --shadow-heavy: 0 8px 25px var(--shadow-color);
+  --shadow-gold: 0 4px 15px rgba(255, 215, 0, 0.3);
+  --shadow-green: 0 4px 15px rgba(0, 200, 81, 0.3);
+  --shadow-red: 0 4px 15px rgba(255, 107, 107, 0.3);
+  
+  /* === TYPOGRAPHY === */
+  --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-secondary: 'Georgia', 'Times New Roman', serif;
+  --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* === SPACING === */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 0.75rem;   /* 12px */
+  --space-lg: 1rem;      /* 16px */
+  --space-xl: 1.5rem;    /* 24px */
+  --space-2xl: 2rem;     /* 32px */
+  --space-3xl: 3rem;     /* 48px */
+  --space-4xl: 4rem;     /* 64px */
+  
+  /* === BORDER RADIUS === */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;  /* Full radius */
+  
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* === BREAKPOINTS (for reference in JS) === */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  
+  /* === Z-INDEX LAYERS === */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* === DARK MODE SUPPORT === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pure-white: #1A1A1A;
+    --light-gray: #2D2D2D;
+    --medium-gray: #8E8E8E;
+    --dark-text: #F0F0F0;
+    --border-light: #404040;
+    --border-medium: #505050;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* === REDUCED MOTION SUPPORT === */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-normal: 0s;
+    --transition-slow: 0s;
+  }
+}

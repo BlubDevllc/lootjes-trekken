@@ -1,0 +1,80 @@
+/**
+ * Main CSS Entry Point
+ * Imports all CSS modules in correct order
+ * 
+ * @version 2.0.0
+ * @author BlubDevllc
+ * @description Main stylesheet that imports all CSS modules
+ */
+
+/* === CSS MODULE IMPORTS === */
+/* Order is important for CSS cascade and specificity */
+
+/* 1. Variables and Design Tokens */
+@import url('./variables.css');
+
+/* 2. Base Styles and Reset */
+@import url('./base.css');
+
+/* 3. Layout Components */
+@import url('./layout.css');
+
+/* 4. UI Components */
+@import url('./components.css');
+
+/* 5. Lottery-Specific Components */
+@import url('./lottery.css');
+
+/* 6. Responsive Design (last to override) */
+@import url('./responsive.css');
+
+/* === ACCESSIBILITY ENHANCEMENTS === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === UTILITIES === */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.no-print {
+  /* Elements with this class will be hidden during printing */
+  /* See responsive.css @media print for implementation */
+}
+
+/* === CUSTOM SCROLLBAR FOR WEBKIT === */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}

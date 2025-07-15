@@ -1,0 +1,316 @@
+/**
+ * Responsive Design
+ * Mobile-first responsive breakpoints and adjustments
+ * 
+ * @version 2.0.0
+ * @author BlubDevllc
+ * @description Responsive design for all device sizes
+ */
+
+/* === MOBILE FIRST BASE STYLES === */
+/* All base styles above are mobile-first (320px+) */
+
+/* === LARGE MOBILE DEVICES === */
+/* iPhone 6/7/8 Plus, large Android phones */
+@media (min-width: 414px) {
+  .container {
+    padding: var(--space-xl);
+  }
+  
+  .app-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .participant-row {
+    gap: var(--space-lg);
+  }
+}
+
+/* === SMALL TABLETS === */
+/* iPad Mini, small tablets in portrait */
+@media (min-width: 576px) {
+  .container {
+    padding: var(--space-2xl);
+  }
+  
+  .app-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .participant-row .form-input[type="number"] {
+    width: 120px;
+  }
+  
+  .lottery-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .btn {
+    padding: var(--space-lg) var(--space-2xl);
+  }
+}
+
+/* === TABLETS === */
+/* iPad, tablets in portrait mode */
+@media (min-width: 768px) {
+  body {
+    padding: var(--space-2xl);
+  }
+  
+  .container {
+    padding: var(--space-3xl);
+  }
+  
+  .section {
+    padding: var(--space-2xl);
+  }
+  
+  .participant-row {
+    padding: var(--space-lg);
+    gap: var(--space-xl);
+  }
+  
+  .participant-row .form-input[type="number"] {
+    width: 140px;
+  }
+  
+  .stat-card {
+    padding: var(--space-2xl);
+  }
+  
+  .winner-list-item {
+    padding: var(--space-xl);
+    padding-left: var(--space-4xl);
+  }
+  
+  .winner-list-item::before {
+    width: 35px;
+    height: 35px;
+    left: -18px;
+  }
+}
+
+/* === SMALL DESKTOPS === */
+/* Small laptops, tablets in landscape */
+@media (min-width: 992px) {
+  .container {
+    padding: var(--space-4xl);
+  }
+  
+  .grid-2 {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .participant-row {
+    gap: var(--space-2xl);
+  }
+  
+  .btn-lg {
+    padding: var(--space-xl) var(--space-3xl);
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* === LARGE DESKTOPS === */
+/* Large monitors, desktop computers */
+@media (min-width: 1200px) {
+  body {
+    padding: var(--space-3xl);
+  }
+  
+  .container {
+    max-width: 900px;
+    padding: var(--space-4xl);
+  }
+  
+  .app-title {
+    font-size: calc(var(--font-size-4xl) * 1.2);
+  }
+  
+  .section {
+    padding: var(--space-3xl);
+  }
+  
+  .lottery-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .stat-number {
+    font-size: calc(var(--font-size-4xl) * 1.3);
+  }
+}
+
+/* === ULTRA WIDE SCREENS === */
+/* 4K monitors, ultra-wide displays */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1000px;
+  }
+  
+  body {
+    padding: var(--space-4xl);
+  }
+}
+
+/* === SMALL SCREENS ADJUSTMENTS === */
+/* iPhone SE, older small phones */
+@media (max-width: 375px) {
+  body {
+    padding: var(--space-md);
+  }
+  
+  .container {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+  
+  .app-title {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-tight);
+  }
+  
+  .app-subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .participant-row {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: stretch;
+  }
+  
+  .participant-row .form-input[type="number"] {
+    width: 100%;
+  }
+  
+  .participant-remove-btn {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .lottery-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .stat-card {
+    padding: var(--space-lg);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .btn {
+    width: 100%;
+    padding: var(--space-lg);
+  }
+  
+  .winner-list-item {
+    padding: var(--space-md);
+    padding-left: var(--space-2xl);
+  }
+  
+  .winner-list-item::before {
+    left: -12px;
+    width: 24px;
+    height: 24px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* === LANDSCAPE ORIENTATION ON MOBILE === */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  
+  .app-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .app-subtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .section {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+  }
+  
+  .lottery-results {
+    margin-top: var(--space-xl);
+    padding: var(--space-xl);
+  }
+}
+
+/* === HIGH DPI SCREENS === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .app-title,
+  .stat-number {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: none;
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+  }
+  
+  .no-print,
+  .btn,
+  .participant-remove-btn,
+  .app-footer {
+    display: none !important;
+  }
+  
+  .section {
+    break-inside: avoid;
+    margin-bottom: 20pt;
+    padding: 0;
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .lottery-results {
+    background: white !important;
+    border: 1pt solid black !important;
+    padding: 10pt;
+  }
+  
+  .winner-list-item {
+    background: white !important;
+    border: 1pt solid #ccc !important;
+    margin-bottom: 5pt;
+    padding: 5pt;
+    break-inside: avoid;
+  }
+  
+  .stat-card {
+    background: white !important;
+    border: 1pt solid #ccc !important;
+    margin-bottom: 10pt;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: black !important;
+  }
+}
